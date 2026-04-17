@@ -35,22 +35,24 @@ export default function MenuView() {
       className="w-full max-w-4xl mx-auto px-6 pt-32 pb-40 z-10 relative"
     >
       <div className="text-center mb-16">
-        <h1 className="font-serif text-5xl text-accent mb-4">Our Menus</h1>
-        <p className="text-text-dim text-lg">A fusion of global flavors and local Trinidadian flair.</p>
+        <h1 className="font-serif text-5xl gold-text mb-4">Our Menus</h1>
+        <p className="text-white/60 font-light text-lg tracking-wide uppercase">A fusion of global flavors and local Trinidadian flair.</p>
       </div>
 
       <div className="space-y-16">
         {menuData.map((section, i) => (
-          <div key={i} className="bg-glass backdrop-blur-md border border-glass-border p-8 rounded-2xl">
-            <h2 className="font-serif text-2xl text-white mb-6 pb-2 border-b border-glass-border inline-block">{section.category}</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div key={i} className="bg-black/80 backdrop-blur-md border-[0.5px] border-[#d4af37]/30 p-10 rounded-none shadow-[0_10px_40px_rgba(0,0,0,0.8)] relative isolate">
+            <div className="absolute top-0 right-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#d4af37]/50 to-transparent"></div>
+            
+            <h2 className="font-sans font-light tracking-[4px] uppercase text-xl text-white mb-8 pb-4 border-b border-[#d4af37]/20 inline-block">{section.category}</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-12 gap-x-16">
               {section.items.map((item, j) => (
-                <div key={j} className="flex flex-col">
-                  <div className="flex justify-between items-baseline mb-2">
-                    <h3 className="text-accent font-bold text-lg">{item.name}</h3>
-                    <span className="text-white font-bold tracking-wider">{item.price}</span>
+                <div key={j} className="flex flex-col group">
+                  <div className="flex justify-between items-baseline mb-3 border-b border-white/5 pb-2">
+                    <h3 className="gold-text font-serif text-lg tracking-wide">{item.name}</h3>
+                    <span className="text-white font-sans text-sm tracking-[2px]">{item.price}</span>
                   </div>
-                  <p className="text-sm text-text-dim leading-relaxed">{item.desc}</p>
+                  <p className="text-[13px] text-white/50 leading-relaxed font-light">{item.desc}</p>
                 </div>
               ))}
             </div>

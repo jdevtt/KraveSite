@@ -35,63 +35,64 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            className="absolute inset-0 bg-black/80 backdrop-blur-md"
           />
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            className="relative w-full max-w-lg bg-[#0a0a0b] border border-glass-border rounded-2xl p-6 md:p-8 shadow-2xl z-10"
+            className="relative w-full max-w-lg bg-black border-[0.5px] border-[#d4af37]/40 rounded-none p-8 md:p-10 shadow-[0_10px_50px_rgba(212,175,55,0.15)] z-10"
           >
-            <button onClick={onClose} className="absolute top-4 right-4 text-text-dim hover:text-white transition cursor-pointer">
+            <div className="absolute top-0 right-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#d4af37]/50 to-transparent"></div>
+            <button onClick={onClose} className="absolute top-6 right-6 text-white/50 hover:text-[#d4af37] transition cursor-pointer">
               <X size={24} />
             </button>
             
             {step === 1 ? (
               <>
-                <h2 className="font-serif text-3xl text-accent mb-2">Reserve a Table</h2>
-                <p className="text-text-dim text-sm mb-6">Experience modern cuisine with Trinidadian soul.</p>
+                <h2 className="font-serif text-3xl gold-text mb-2">Reserve a Table</h2>
+                <p className="text-white/60 font-light tracking-wide text-sm mb-8">Experience modern cuisine with Trinidadian soul.</p>
                 
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid grid-cols-2 gap-4">
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <div className="grid grid-cols-2 gap-5">
                     <div className="space-y-1">
-                      <label className="text-xs uppercase tracking-wider text-text-dim">Date</label>
-                      <input required type="date" className="w-full bg-glass border border-glass-border rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-accent text-white [color-scheme:dark]" />
+                      <label className="text-[10px] uppercase tracking-[2px] text-[#d4af37]">Date</label>
+                      <input required type="date" className="w-full bg-black border border-[#d4af37]/30 rounded-none px-4 py-3 text-sm focus:outline-none focus:border-[#d4af37] text-white [color-scheme:dark] transition-colors shadow-inner" />
                     </div>
                     <div className="space-y-1">
-                      <label className="text-xs uppercase tracking-wider text-text-dim">Time</label>
-                      <input required type="time" className="w-full bg-glass border border-glass-border rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-accent text-white [color-scheme:dark]" />
+                      <label className="text-[10px] uppercase tracking-[2px] text-[#d4af37]">Time</label>
+                      <input required type="time" className="w-full bg-black border border-[#d4af37]/30 rounded-none px-4 py-3 text-sm focus:outline-none focus:border-[#d4af37] text-white [color-scheme:dark] transition-colors shadow-inner" />
                     </div>
                   </div>
                   
-                  <div className="space-y-1">
-                    <label className="text-xs uppercase tracking-wider text-text-dim">Guests</label>
-                    <select defaultValue={2} className="w-full bg-glass border border-glass-border rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-accent text-white appearance-none">
-                      {[1,2,3,4,5,6,7,8,"9+"].map(n => <option key={n} value={n} className="bg-[#1a1a1a] text-white">{n} {n === 1 ? 'Guest' : 'Guests'}</option>)}
+                  <div className="space-y-1 relative">
+                    <label className="text-[10px] uppercase tracking-[2px] text-[#d4af37]">Guests</label>
+                    <select defaultValue={2} className="w-full bg-black border border-[#d4af37]/30 rounded-none px-4 py-3 text-sm focus:outline-none focus:border-[#d4af37] text-white appearance-none transition-colors shadow-inner">
+                      {[1,2,3,4,5,6,7,8,"9+"].map(n => <option key={n} value={n} className="bg-[#111] text-white">{n} {n === 1 ? 'Guest' : 'Guests'}</option>)}
                     </select>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div className="space-y-1">
-                      <label className="text-xs uppercase tracking-wider text-text-dim">Name</label>
-                      <input required type="text" placeholder="Your Name" className="w-full bg-glass border border-glass-border rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-accent text-white placeholder-text-dim" />
+                      <label className="text-[10px] uppercase tracking-[2px] text-[#d4af37]">Name</label>
+                      <input required type="text" placeholder="Your Name" className="w-full bg-black border border-[#d4af37]/30 rounded-none px-4 py-3 text-sm focus:outline-none focus:border-[#d4af37] text-white placeholder-white/30 transition-colors shadow-inner" />
                     </div>
                     <div className="space-y-1">
-                      <label className="text-xs uppercase tracking-wider text-text-dim">WhatsApp Number</label>
-                      <input required type="tel" placeholder="+1 (868) ..." className="w-full bg-glass border border-glass-border rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-accent text-white placeholder-text-dim" />
+                      <label className="text-[10px] uppercase tracking-[2px] text-[#d4af37]">WhatsApp</label>
+                      <input required type="tel" placeholder="+1 (868) ..." className="w-full bg-black border border-[#d4af37]/30 rounded-none px-4 py-3 text-sm focus:outline-none focus:border-[#d4af37] text-white placeholder-white/30 transition-colors shadow-inner" />
                     </div>
                   </div>
 
-                  <button type="submit" className="w-full bg-accent text-black font-bold uppercase tracking-wider py-4 rounded-lg mt-4 cursor-pointer hover:opacity-90 transition">
+                  <button type="submit" className="w-full bg-gradient-to-r from-[#bf953f] via-[#fcf6ba] to-[#aa771c] text-black font-bold uppercase tracking-[2px] py-[18px] rounded-none mt-6 cursor-pointer hover:brightness-110 transition-all shadow-[0_4px_20px_rgba(212,175,55,0.3)] text-xs">
                     Confirm Reservation
                   </button>
                 </form>
               </>
             ) : (
               <div className="flex flex-col items-center justify-center py-12 text-center">
-                <CheckCircle2 size={64} className="text-[#25D366] mb-4" />
-                <h2 className="font-serif text-3xl text-white mb-2">Request Sent</h2>
-                <p className="text-text-dim text-sm">
+                <CheckCircle2 size={64} className="text-[#d4af37] mb-6" />
+                <h2 className="font-serif text-3xl gold-text mb-4">Request Sent</h2>
+                <p className="text-white/70 text-sm font-light leading-relaxed max-w-[280px]">
                   We've received your inquiry! Our host will reach out via WhatsApp shortly to confirm your table.
                 </p>
               </div>
